@@ -1,185 +1,108 @@
 # Langchain Agentic AI
 
-I'm Fatemeh Lotfi, an Applied AI Scientist, PhD, and this repository is one track within my broader applied AI project work. I built it to start with a simple LangChain agent and then grow into more advanced agentic workflows over time.
-
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![LangChain](https://img.shields.io/badge/langchain-agentic_ai-orange.svg)](https://python.langchain.com/)
 
-## Project Overview
+## Description
 
-This repository is my practical exploration of agentic AI with LangChain, organized as part of a larger project direction rather than a loose collection of experiments. Each phase builds on the last one in a way that is easy to follow and easy to extend.
+Langchain Agentic AI is a project module focused on implementing and hardening agentic workflows with LangChain.
+The repository is organized as staged implementation tracks, where each track adds capability while preserving code quality, testability, and clear interfaces.
 
-### Key Features
-- Project-oriented structure with a clear development path
-- Progressive agent capabilities: Simple → ReAct → Multi-Agent → Advanced patterns
-- Clean architecture with reusable core components
-- Example-driven learning with working code for each phase
-- Testing and documentation included from the start
-- Built to show real engineering habits, not just demo code
+## Scope
 
-## Quick Start
+- Build reusable agent foundations (`BaseAgent`, `ToolRegistry`)
+- Implement progressively more capable agent patterns
+- Provide runnable examples for each track
+- Maintain tests and documentation as part of delivery
+
+## Current Status
+
+- Track 1 implemented: single-agent workflow with tool invocation
+- Core abstractions in place under `src/core`
+- Unit tests available for foundational components
+- Tracks 2 and 3 scaffolded for ReAct and multi-agent expansion
+
+## Architecture
+
+```text
+src/
+	core/      base abstractions and tool management
+	agents/    agent implementations
+	tools/     callable tool definitions
+	utils/     shared utility code
+
+examples/
+	01_simple_agent/
+	02_react_agent/
+	03_multi_agent/
+
+tests/
+docs/
+```
+
+## Execution Workflow
+
+1. User task is submitted to an agent entry point.
+2. Agent selects a tool/action through the LLM policy.
+3. Tool executes and returns observation data.
+4. Agent iterates until completion or iteration limit.
+5. Final response and execution trace are returned.
+
+## Setup
 
 ### Prerequisites
+
 - Python 3.10+
-- pip or poetry
-- OpenAI API key (or other LLM provider)
+- pip
+- LLM provider API key (`OPENAI_API_KEY` or `ANTHROPIC_API_KEY`)
 
 ### Installation
 
 ```bash
-# Clone the repository
-git clone <repo-url>
-cd langchain-agentic-ai
-
-# Create virtual environment
+git clone https://github.com/FLotfiGit/Langchain-Agentic-AI.git
+cd Langchain-Agentic-AI
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
+source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-
-# Set up environment
 cp .env.example .env
-# Edit .env with your API keys
 ```
 
-### Run Phase 1
+Update `.env` with credentials before running examples.
+
+## Run
 
 ```bash
 cd examples/01_simple_agent
 python main.py
 ```
 
-You should see the agent print available tools and then run through a few sample prompts.
+## Test
 
-## Project Structure
-
-```
-langchain-agentic-ai/
-├── src/                    # Core source code
-│   ├── core/              # Base agent classes and utilities
-│   ├── agents/            # Agent implementations
-│   ├── tools/             # Tool definitions
-│   └── utils/             # Utility functions
-├── examples/              # Progressive examples
-│   ├── 01_simple_agent/   # Phase 1: Basic agent
-│   ├── 02_react_agent/    # Phase 2: ReAct reasoning
-│   └── 03_multi_agent/    # Phase 3: Multi-agent systems
-├── tests/                 # Unit and integration tests
-├── docs/                  # Documentation and guides
-└── logs/                  # Execution logs and traces
+```bash
+pytest tests/ -v
+pytest tests/ --cov=src
 ```
 
-## Development Roadmap
+## Roadmap
 
-### Phase 1: Simple Agent (Initial Track)
-- Basic agent with simple tools
-- Understanding agent loop
-- Tool calling and parsing
-- **Focus**: Core concepts and architecture
-
-### Phase 2: ReAct Agent (Intermediate)
-- Reasoning + Acting pattern
-- Complex tool composition
-- Error handling and recovery
-- **Focus**: Advanced reasoning patterns
-
-### Phase 3: Multi-Agent Systems (Advanced)
-- Agent collaboration and delegation
-- Inter-agent communication
-- Shared memory and context
-- **Focus**: Scalable architectures
-
-### Phase 4+: Production Patterns (Expert)
-- Memory management and optimization
-- Custom planning strategies
-- Monitoring and logging
-- Real-world integration
-
-## Core Concepts
-
-### Agents
-Autonomous entities that use LLMs to reason and execute tasks through a loop of:
-1. **Thought**: LLM analyzes the situation
-2. **Action**: LLM decides what tool to use
-3. **Observation**: Tool result is observed
-4. **Repeat**: Until goal is reached
-
-### Tools
-Functions that agents can call to interact with the world:
-- Data retrieval
-- Calculations
-- API calls
-- External systems
+- Track 1: Simple single-agent execution with tools
+- Track 2: ReAct-style structured reasoning loop
+- Track 3: Multi-agent coordination and delegation
+- Track 4: Production concerns (memory, observability, planning)
 
 ## Documentation
 
-See [docs/](docs/) for detailed guides:
-- Architecture overview
-- Agent design patterns
-- Tool development guide
-- Troubleshooting guide
+- [docs/GETTING_STARTED.md](docs/GETTING_STARTED.md)
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
+- [CONTRIBUTING.md](CONTRIBUTING.md)
 
-## Testing
-
-```bash
-# Run all tests
-pytest tests/
-
-# Run with coverage
-pytest tests/ --cov=src
-
-# Run specific test file
-pytest tests/test_agents.py -v
-```
-
-## Environment Setup
-
-Create a `.env` file with required API keys:
-
-```env
-# LLM Provider (choose one)
-OPENAI_API_KEY=your_key_here
-# OR
-ANTHROPIC_API_KEY=your_key_here
-
-# Optional: Other services
-SERPAPI_API_KEY=your_key_here
-LANGSMITH_API_KEY=your_key_here
-```
-
-## References
-
-### LangChain Documentation
-- [LangChain Docs](https://python.langchain.com/)
-- [Agents & Tools](https://python.langchain.com/docs/modules/agents/)
-
-### Research Papers
-- ReAct: Synergizing Reasoning and Acting in Language Models
-- Multi-Agent Systems for Complex Problem Solving
-- LangChain Framework Architecture
-
-## Contributing
-
-This is an active project. Feel free to:
-- Experiment with new agent patterns
-- Improve examples and documentation
-- Add new tool implementations
-- Create advanced variants
-
-## License
-
-MIT License - See LICENSE file for details
-
-## Author
+## Maintainer
 
 Fatemeh Lotfi
 
 Applied AI Scientist, PhD
 
----
+## License
 
-**Status**: Active development
-**Last Updated**: May 2026
-**Current Track**: 1 - Simple Agents
+MIT License. See [LICENSE](LICENSE).

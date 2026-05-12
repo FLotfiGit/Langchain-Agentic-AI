@@ -1,131 +1,52 @@
-# Phase 1: Simple Agent
+# Track 01: Simple Agent
 
-## Overview
+## Objective
 
-This phase establishes the first working track in the broader LangChain project.
+Deliver a minimal single-agent implementation with tool calling, deterministic behavior, and clear execution output.
 
-### What This Phase Covers
+## Included Components
 
-1. **Agent Fundamentals**
-   - What is an agent?
-   - The agent loop: Thought → Action → Observation
-   - How LLMs make decisions
+- `agent.py`: `SimpleAgent` implementation and tool registration
+- `main.py`: executable entry point with representative task prompts
 
-2. **Tools**
-   - Defining tools
-   - Tool registration
-   - Tool calling and parameter parsing
+## Implemented Capabilities
 
-3. **Basic Agent Patterns**
-   - ReAct (Reasoning + Acting)
-   - Error handling
-   - Simple task execution
+- Arithmetic tool invocation (`add_numbers`, `multiply_numbers`)
+- Simulated data retrieval tools (`get_weather`, `calculate_distance`)
+- Agent execution loop using `AgentType.ZERO_SHOT_REACT_DESCRIPTION`
+- Bounded iteration and parsing error handling
 
-### Key Concepts
+## Runtime Flow
 
-#### Agent Loop
+1. Build LLM client and register tools.
+2. Initialize LangChain agent executor.
+3. Submit task prompt.
+4. Execute Thought/Action/Observation loop.
+5. Return final output.
 
-```
-Input: "What is 5 times 3, plus 10?"
-    ↓
-[Thought]: "I need to multiply 5 by 3, then add 10"
-    ↓
-[Action]: Use multiply_numbers tool with (5, 3)
-    ↓
-[Observation]: Got 15
-    ↓
-[Thought]: "Now I need to add 10 to 15"
-    ↓
-[Action]: Use add_numbers tool with (15, 10)
-    ↓
-[Observation]: Got 25
-    ↓
-Output: "The answer is 25"
-```
-
-#### Tool Definition
-
-A tool is a function that an agent can call. In LangChain:
-
-```python
-@tool
-def multiply_numbers(a: float, b: float) -> float:
-    """Multiply two numbers together."""
-    return a * b
-```
-
-### Running the Example
+## Run
 
 ```bash
-# Navigate to this directory
 cd examples/01_simple_agent
-
-# Set up environment (if not already done)
-cp ../../.env.example ../../.env
-# Edit .env with your OpenAI API key
-
-# Run the example
 python main.py
 ```
 
-### Code Structure
+## Operational Notes
 
-- `agent.py` - SimpleAgent class and tool definitions
-- `main.py` - Example usage and test cases
+- Requires valid provider credentials in `.env`.
+- Tool outputs are intentionally simple for deterministic behavior.
+- Example is intended as the baseline track for subsequent ReAct and multi-agent implementations.
 
-### Understanding the Code
+## Known Constraints
 
-#### SimpleAgent Initialization
+- Weather and distance tools are simulated, not API-backed.
+- Current model default is fixed in code (`gpt-3.5-turbo`).
 
-```python
-agent = SimpleAgent(verbose=True)
-```
+## Next Track
 
-- Creates an LLM instance (ChatOpenAI)
-- Registers available tools
-- Initializes LangChain's agent framework
+Track 02 will extend this baseline with a structured ReAct-style reasoning flow and stronger tool orchestration.
 
-#### Running Tasks
+## References
 
-```python
-result = agent.run("What is 15 plus 25?")
-```
-
-The agent will:
-1. Parse the task
-2. Decide which tool to use
-3. Call the appropriate tool
-4. Observe the result
-5. Return the final answer
-
-### Exercises
-
-Try modifying the code:
-
-1. **Add a new tool**: Create a subtraction function and register it
-2. **Complex tasks**: Try multi-step problems requiring multiple tool calls
-3. **Error handling**: What happens with invalid inputs?
-4. **Tool descriptions**: Improve tool descriptions to guide the agent better
-
-### Common Issues
-
-**Issue**: Agent doesn't use the right tool
-- **Solution**: Improve tool descriptions to be more specific
-
-**Issue**: Agent gets stuck in a loop
-- **Solution**: Lower `max_iterations` or improve tool output clarity
-
-**Issue**: API errors
-- **Solution**: Check `.env` file and ensure OPENAI_API_KEY is set correctly
-
-### Next Steps
-
-Once you're comfortable with this phase:
-- Move to Phase 2: ReAct Agent for more complex reasoning
-- Explore error handling and recovery mechanisms
-- Implement custom tool resolution logic
-
-### References
-
-- [LangChain Agent Documentation](https://python.langchain.com/docs/modules/agents/)
+- [LangChain Agents](https://python.langchain.com/docs/modules/agents/)
 - [ReAct Paper](https://arxiv.org/abs/2210.03629)
