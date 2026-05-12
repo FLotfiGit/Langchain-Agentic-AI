@@ -58,7 +58,7 @@ The agent will process your tasks and show:
 - **Observation**: The tool's result
 - **Final Answer**: The agent's conclusion
 
-## Learning Path
+## Development Path
 
 ### Phase 1: Simple Agent ✓
 - Basic agent with simple tools

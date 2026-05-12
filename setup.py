@@ -8,7 +8,7 @@ setup(
     version="0.1.0",
     author="Fatemeh Lotfi",
     author_email="flotfi@clemson.edu",
-    description="LangChain agentic AI learning project by Fatemeh Lotfi",
+    description="LangChain agentic AI project by Fatemeh Lotfi",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/FLotfiGit/Langchain-Agentic-AI",

@@ -164,7 +164,7 @@ When adding tools:
 
 ## Adding New Phases
 
-When adding a new learning phase:
+When adding a new project phase:
 
 1. Create `examples/<number>_<name>/` directory
 2. Implement new agent patterns
@@ -172,7 +172,7 @@ When adding a new learning phase:
 4. Write comprehensive `README.md`
 5. Add tests in `tests/`
 6. Update main project README
-7. Document learning objectives
+7. Document project objectives
 
 ## Documentation Standards
 

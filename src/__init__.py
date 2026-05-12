@@ -1,5 +1,5 @@
 """
-Langchain Agentic AI - Professional learning project for building intelligent agents.
+Langchain Agentic AI - Project codebase for building intelligent agents.
 """
 
 __version__ = "0.1.0"

@@ -2,9 +2,9 @@
 
 ## Overview
 
-This is the foundational phase where we learn the basics of LangChain agents.
+This phase establishes the first working track in the broader LangChain project.
 
-### What You'll Learn
+### What This Phase Covers
 
 1. **Agent Fundamentals**
    - What is an agent?

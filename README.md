@@ -73,7 +73,7 @@ langchain-agentic-ai/
 
 ## Development Roadmap
 
-### Phase 1: Simple Agent (Beginner)
+### Phase 1: Simple Agent (Initial Track)
 - Basic agent with simple tools
 - Understanding agent loop
 - Tool calling and parsing
@@ -162,7 +162,7 @@ LANGSMITH_API_KEY=your_key_here
 
 ## Contributing
 
-This is a learning project. Feel free to:
+This is an active project. Feel free to:
 - Experiment with new agent patterns
 - Improve examples and documentation
 - Add new tool implementations

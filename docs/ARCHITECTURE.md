@@ -195,7 +195,7 @@ Tool Object
 1. Create directory in `examples/`
 2. Implement agents
 3. Create main.py example
-4. Write README.md with learning goals
+4. Write README.md with project goals
 5. Add tests
 
 ## Configuration
