@@ -19,10 +19,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Add parent directory to path for imports
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+# Add this example directory to path so the script can be run directly.
+sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 
-from examples.phase_01_simple_agent.agent import SimpleAgent
+from agent import SimpleAgent
 
 
 def main():

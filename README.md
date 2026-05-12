@@ -1,19 +1,23 @@
-# Langchain Agentic AI - Professional Learning Project
+# Langchain Agentic AI
 
-A comprehensive, production-oriented exploration of LangChain's agentic AI capabilities, progressing from foundational concepts to advanced multi-agent architectures.
+A professional, portfolio-ready LangChain project that grows from a simple single-agent workflow into more advanced agentic systems.
 
-## 📋 Project Overview
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![LangChain](https://img.shields.io/badge/langchain-agentic_ai-orange.svg)](https://python.langchain.com/)
 
-This repository demonstrates professional implementation patterns for building intelligent agents using LangChain. The project is structured as a learning journey, moving from simple agents to complex, production-ready systems.
+## Project Overview
+
+This repository demonstrates practical implementation patterns for building intelligent agents with LangChain. It is structured as a learning journey that starts simple and expands toward more advanced, production-style systems.
 
 ### Key Features
-- **Progressive Learning Path**: Simple → ReAct → Multi-Agent → Advanced patterns
-- **Production-Ready Code**: Clean architecture, comprehensive documentation, testing
-- **Modular Design**: Reusable agent components and tool implementations
-- **Real Examples**: Working examples for each complexity level
-- **Best Practices**: Following LangChain conventions and Python standards
+- Progressive learning path: Simple → ReAct → Multi-Agent → Advanced patterns
+- Clean architecture with reusable core components
+- Example-driven learning with working code for each phase
+- Testing and documentation included from the start
+- Designed to look and feel like a real engineering project
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Python 3.10+
@@ -39,14 +43,16 @@ cp .env.example .env
 # Edit .env with your API keys
 ```
 
-### Run Your First Agent
+### Run Phase 1
 
 ```bash
 cd examples/01_simple_agent
 python main.py
 ```
 
-## 📁 Project Structure
+You should see the agent print available tools and then run through a few sample prompts.
+
+## Project Structure
 
 ```
 langchain-agentic-ai/
@@ -64,7 +70,7 @@ langchain-agentic-ai/
 └── logs/                  # Execution logs and traces
 ```
 
-## 🎯 Learning Path
+## Learning Path
 
 ### Phase 1: Simple Agent (Beginner)
 - Basic agent with simple tools
@@ -90,7 +96,7 @@ langchain-agentic-ai/
 - Monitoring and logging
 - Real-world integration
 
-## 🛠️ Core Concepts
+## Core Concepts
 
 ### Agents
 Autonomous entities that use LLMs to reason and execute tasks through a loop of:
@@ -106,7 +112,7 @@ Functions that agents can call to interact with the world:
 - API calls
 - External systems
 
-## 📚 Documentation
+## Documentation
 
 See [docs/](docs/) for detailed guides:
 - Architecture overview
@@ -114,7 +120,7 @@ See [docs/](docs/) for detailed guides:
 - Tool development guide
 - Troubleshooting guide
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run all tests
@@ -127,7 +133,7 @@ pytest tests/ --cov=src
 pytest tests/test_agents.py -v
 ```
 
-## 🔒 Environment Setup
+## Environment Setup
 
 Create a `.env` file with required API keys:
 
@@ -142,7 +148,7 @@ SERPAPI_API_KEY=your_key_here
 LANGSMITH_API_KEY=your_key_here
 ```
 
-## 📖 References
+## References
 
 ### LangChain Documentation
 - [LangChain Docs](https://python.langchain.com/)
@@ -153,7 +159,7 @@ LANGSMITH_API_KEY=your_key_here
 - Multi-Agent Systems for Complex Problem Solving
 - LangChain Framework Architecture
 
-## 🤝 Contributing
+## Contributing
 
 This is a learning project. Feel free to:
 - Experiment with new agent patterns
@@ -161,16 +167,16 @@ This is a learning project. Feel free to:
 - Add new tool implementations
 - Create advanced variants
 
-## 📝 License
+## License
 
 MIT License - See LICENSE file for details
 
-## 👤 Author
+## Author
 
 [Your Name/Profile]
 
 ---
 
-**Status**: 🟢 Active Development
+**Status**: Active development
 **Last Updated**: May 2026
 **Current Phase**: 1 - Simple Agents
