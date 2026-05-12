@@ -25,6 +25,23 @@ The repository is organized as staged implementation tracks, where each track ad
 
 ## Architecture
 
+```mermaid
+flowchart TB
+		A[Repository] --> B[src]
+		A --> C[examples]
+		A --> D[tests]
+		A --> E[docs]
+
+		B --> B1[core: BaseAgent, ToolRegistry]
+		B --> B2[agents: agent implementations]
+		B --> B3[tools: callable tools]
+		B --> B4[utils: shared utilities]
+
+		C --> C1[01_simple_agent]
+		C --> C2[02_react_agent]
+		C --> C3[03_multi_agent]
+```
+
 ```text
 src/
 	core/      base abstractions and tool management
@@ -48,6 +65,27 @@ docs/
 3. Tool executes and returns observation data.
 4. Agent iterates until completion or iteration limit.
 5. Final response and execution trace are returned.
+
+```mermaid
+sequenceDiagram
+	autonumber
+	actor U as User
+	participant M as main.py
+	participant AG as SimpleAgent
+	participant LLM as ChatOpenAI
+	participant T as Tools
+
+	U->>M: Submit task
+	M->>AG: run(task)
+	AG->>LLM: plan next action
+	LLM-->>AG: selected tool + args
+	AG->>T: execute tool call
+	T-->>AG: observation/result
+	AG->>LLM: continue reasoning with observation
+	LLM-->>AG: final answer
+	AG-->>M: return output
+	M-->>U: display result
+```
 
 ## Setup
 
@@ -90,6 +128,13 @@ pytest tests/ --cov=src
 - Track 2: ReAct-style structured reasoning loop
 - Track 3: Multi-agent coordination and delegation
 - Track 4: Production concerns (memory, observability, planning)
+
+```mermaid
+flowchart LR
+	T1[Track 1\nSimple Agent] --> T2[Track 2\nReAct]
+	T2 --> T3[Track 3\nMulti-Agent]
+	T3 --> T4[Track 4\nProduction Patterns]
+```
 
 ## Documentation
 
