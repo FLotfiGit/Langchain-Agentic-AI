@@ -1,6 +1,6 @@
 # Langchain Agentic AI
 
-I'm Fatemeh Lotfi, an Applied AI Scientist, PhD, and this repository is my hands-on LangChain learning project. I built it to start simple, then grow into more advanced agentic workflows as I go.
+I'm Fatemeh Lotfi, an Applied AI Scientist, PhD, and this repository is one track within my broader applied AI project work. I built it to start with a simple LangChain agent and then grow into more advanced agentic workflows over time.
 
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
@@ -8,10 +8,11 @@ I'm Fatemeh Lotfi, an Applied AI Scientist, PhD, and this repository is my hands
 
 ## Project Overview
 
-This repository is my practical exploration of agentic AI with LangChain. I keep it structured as a learning journey so each phase builds on the last one in a way that is easy to follow and easy to extend.
+This repository is my practical exploration of agentic AI with LangChain, organized as part of a larger project direction rather than a loose collection of experiments. Each phase builds on the last one in a way that is easy to follow and easy to extend.
 
 ### Key Features
-- Progressive learning path: Simple → ReAct → Multi-Agent → Advanced patterns
+- Project-oriented structure with a clear development path
+- Progressive agent capabilities: Simple → ReAct → Multi-Agent → Advanced patterns
 - Clean architecture with reusable core components
 - Example-driven learning with working code for each phase
 - Testing and documentation included from the start
@@ -70,7 +71,7 @@ langchain-agentic-ai/
 └── logs/                  # Execution logs and traces
 ```
 
-## Learning Path
+## Development Roadmap
 
 ### Phase 1: Simple Agent (Beginner)
 - Basic agent with simple tools
@@ -181,4 +182,4 @@ Applied AI Scientist, PhD
 
 **Status**: Active development
 **Last Updated**: May 2026
-**Current Phase**: 1 - Simple Agents
+**Current Track**: 1 - Simple Agents
