@@ -1,6 +1,6 @@
 # Langchain Agentic AI
 
-A professional, portfolio-ready LangChain project that grows from a simple single-agent workflow into more advanced agentic systems.
+I'm Fatemeh Lotfi, an Applied AI Scientist, PhD, and this repository is my hands-on LangChain learning project. I built it to start simple, then grow into more advanced agentic workflows as I go.
 
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
@@ -8,14 +8,14 @@ A professional, portfolio-ready LangChain project that grows from a simple singl
 
 ## Project Overview
 
-This repository demonstrates practical implementation patterns for building intelligent agents with LangChain. It is structured as a learning journey that starts simple and expands toward more advanced, production-style systems.
+This repository is my practical exploration of agentic AI with LangChain. I keep it structured as a learning journey so each phase builds on the last one in a way that is easy to follow and easy to extend.
 
 ### Key Features
 - Progressive learning path: Simple → ReAct → Multi-Agent → Advanced patterns
 - Clean architecture with reusable core components
 - Example-driven learning with working code for each phase
 - Testing and documentation included from the start
-- Designed to look and feel like a real engineering project
+- Built to show real engineering habits, not just demo code
 
 ## Quick Start
 
@@ -173,7 +173,9 @@ MIT License - See LICENSE file for details
 
 ## Author
 
-[Your Name/Profile]
+Fatemeh Lotfi
+
+Applied AI Scientist, PhD
 
 ---
 

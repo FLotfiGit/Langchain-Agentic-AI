@@ -6,12 +6,12 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setup(
     name="langchain-agentic-ai",
     version="0.1.0",
-    author="Your Name",
-    author_email="your.email@example.com",
-    description="Professional LangChain agentic AI learning project",
+    author="Fatemeh Lotfi",
+    author_email="flotfi@clemson.edu",
+    description="LangChain agentic AI learning project by Fatemeh Lotfi",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/langchain-agentic-ai",
+    url="https://github.com/FLotfiGit/Langchain-Agentic-AI",
     package_dir={"": "src"},
     packages=find_packages(where="src"),
     classifiers=[
