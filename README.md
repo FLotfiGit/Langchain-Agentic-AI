@@ -18,7 +18,7 @@ The repository is organized as staged implementation tracks, where each track ad
 
 ## Current Status
 
-- Track 1 implemented: single-agent workflow with tool invocation
+- Track 1 implemented: smart task execution agent with practical planning tools
 - Core abstractions in place under `src/core`
 - Unit tests available for foundational components
 - Tracks 2 and 3 scaffolded for ReAct and multi-agent expansion
@@ -124,7 +124,7 @@ pytest tests/ --cov=src
 
 ## Roadmap
 
-- Track 1: Simple single-agent execution with tools
+- Track 1: Smart task execution (prioritize, schedule, risk review, next actions)
 - Track 2: ReAct-style structured reasoning loop
 - Track 3: Multi-agent coordination and delegation
 - Track 4: Production concerns (memory, observability, planning)

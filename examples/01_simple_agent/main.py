@@ -1,7 +1,7 @@
 """
-Phase 1: Simple Agent - Main Example
+Track 01: Smart Task Execution Agent - Main Example.
 
-This script demonstrates how to use the SimpleAgent with various tasks.
+This script demonstrates practical task-planning workflows with the agent.
 """
 
 import os
@@ -26,22 +26,22 @@ from agent import SimpleAgent
 
 
 def main():
-    """Run example tasks with the SimpleAgent."""
+    """Run representative planning tasks with the smart task execution agent."""
     
-    logger.info("Initializing Simple Agent...")
+    logger.info("Initializing Smart Task Execution Agent...")
     agent = SimpleAgent(verbose=True)
     
-    # Example tasks
+    # Example requests aligned with real planning workflows.
     tasks = [
-        "What is 15 plus 25?",
-        "Multiply 7 by 8",
-        "What's the weather in New York?",
-        "How far is it from London to Paris?",
-        "Calculate what 10 times 5 equals, then add 20 to that result",
+        "Prioritize this backlog: Prepare project proposal (3h), Respond to client email (0.5h), Fix release blocker urgent (2h), Review PR #42 (1h), Schedule interview prep session (1h)",
+        "Build a day plan with hours: 7. Tasks: Finalize grant proposal draft (3h), Review production bugfix (1.5h), Team sync notes (0.5h), Interview prep (1.5h), Inbox cleanup (0.5h)",
+        "Assess execution risks for these tasks: waiting on API approval, integrate new auth flow, blocked by missing credentials, finalize deployment checklist",
+        "Suggest next actions for: Prepare for senior applied AI scientist interview next week",
+        "Create an execution plan for today: I have 6 hours and need to finish a proposal, unblock deployment, and send client updates.",
     ]
     
     logger.info("=" * 60)
-    logger.info("SIMPLE AGENT EXAMPLES")
+    logger.info("SMART TASK EXECUTION AGENT EXAMPLES")
     logger.info("=" * 60)
     
     print("\nAvailable Tools:")
@@ -62,7 +62,7 @@ def main():
             logger.error(f"Error executing task {i}: {e}")
     
     print("\n" + "=" * 60)
-    logger.info("Simple Agent examples completed!")
+    logger.info("Smart Task Execution Agent examples completed!")
 
 
 if __name__ == "__main__":
