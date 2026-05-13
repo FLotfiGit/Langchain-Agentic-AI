@@ -15,6 +15,7 @@ Deliver a practical single-agent implementation for task prioritization, time-bl
 - Time-block day planning (`build_day_plan`)
 - Execution-risk detection (`assess_execution_risks`)
 - Immediate action recommendations (`suggest_next_actions`)
+- Plan artifact export to JSON (`export_plan_json`)
 - Agent execution loop using `AgentType.ZERO_SHOT_REACT_DESCRIPTION`
 - Bounded iteration and parsing error handling
 
@@ -43,6 +44,7 @@ python main.py
 
 - No external calendar integration in Track 01.
 - Task effort estimates are heuristic unless explicitly provided as `(xh)` in input.
+- Exported plans are saved locally inside the repository path.
 - Current model default is fixed in code (`gpt-3.5-turbo`).
 
 ## Next Track

@@ -9,6 +9,9 @@ This module provides a practical single-agent implementation that can:
 """
 
 from typing import Any, Dict, List, Tuple
+from pathlib import Path
+from datetime import datetime
+import json
 import re
 from langchain_openai import ChatOpenAI
 from langchain.agents import initialize_agent, Tool, AgentType
@@ -174,6 +177,36 @@ def suggest_next_actions(task: str) -> str:
     return "\n".join(lines)
 
 
+@tool
+def export_plan_json(plan_text: str, output_file: str = "logs/track01_execution_plan.json") -> str:
+    """Export a plan or agent output to a JSON file path relative to the repository root."""
+    if not plan_text.strip():
+        return "No plan content provided to export."
+
+    repo_root = Path(__file__).resolve().parents[2]
+    target_path = (repo_root / output_file).resolve()
+
+    # Prevent writing outside repository boundaries.
+    if repo_root not in target_path.parents and target_path != repo_root:
+        return "Invalid output path: file must be inside the repository."
+
+    target_path.parent.mkdir(parents=True, exist_ok=True)
+
+    items = [line.strip("- ").strip() for line in plan_text.splitlines() if line.strip()]
+    payload = {
+        "generated_at": datetime.utcnow().isoformat() + "Z",
+        "agent": "Track01SmartTaskExecution",
+        "output_file": str(target_path.relative_to(repo_root)),
+        "plan_text": plan_text,
+        "items": items,
+    }
+
+    with target_path.open("w", encoding="utf-8") as f:
+        json.dump(payload, f, indent=2)
+
+    return f"Plan exported to {target_path.relative_to(repo_root)}"
+
+
 class SimpleAgent:
     """
     A simple agent that uses LangChain's built-in agent framework.
@@ -222,6 +255,11 @@ class SimpleAgent:
                 name="suggest_next_actions",
                 func=suggest_next_actions.invoke,
                 description="Generate concrete next actions for one task.",
+            ),
+            Tool(
+                name="export_plan_json",
+                func=export_plan_json.invoke,
+                description="Save plan output as JSON into the repository, e.g. logs/track01_execution_plan.json.",
             ),
         ]
         return tools

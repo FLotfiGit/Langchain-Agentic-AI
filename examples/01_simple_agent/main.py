@@ -37,7 +37,7 @@ def main():
         "Build a day plan with hours: 7. Tasks: Finalize grant proposal draft (3h), Review production bugfix (1.5h), Team sync notes (0.5h), Interview prep (1.5h), Inbox cleanup (0.5h)",
         "Assess execution risks for these tasks: waiting on API approval, integrate new auth flow, blocked by missing credentials, finalize deployment checklist",
         "Suggest next actions for: Prepare for senior applied AI scientist interview next week",
-        "Create an execution plan for today: I have 6 hours and need to finish a proposal, unblock deployment, and send client updates.",
+        "Create an execution plan for today: I have 6 hours and need to finish a proposal, unblock deployment, and send client updates. Then save the final plan using export_plan_json to logs/today_execution_plan.json",
     ]
     
     logger.info("=" * 60)
