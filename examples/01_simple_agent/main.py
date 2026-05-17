@@ -64,6 +64,14 @@ def main():
     print("\n" + "=" * 60)
     logger.info("Smart Task Execution Agent examples completed!")
 
+    # Demonstrate refine from exported plan if the export was created
+    print("\nRefinement demo: attempting to refine logs/today_execution_plan.json")
+    try:
+        refine_result = agent.run("Refine exported plan logs/today_execution_plan.json with available hours: 6 and save to logs/today_refined_plan.json")
+        print(refine_result)
+    except Exception as e:
+        logger.error(f"Error during refinement demo: {e}")
+
 
 if __name__ == "__main__":
     main()

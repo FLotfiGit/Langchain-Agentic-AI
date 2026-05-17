@@ -207,6 +207,51 @@ def export_plan_json(plan_text: str, output_file: str = "logs/track01_execution_
     return f"Plan exported to {target_path.relative_to(repo_root)}"
 
 
+@tool
+def load_plan_json(path: str) -> str:
+    """Load a previously exported plan JSON and return its textual plan content."""
+    repo_root = Path(__file__).resolve().parents[2]
+    target_path = (repo_root / path).resolve()
+    if not target_path.exists():
+        return f"File not found: {path}"
+
+    try:
+        with target_path.open("r", encoding="utf-8") as f:
+            payload = json.load(f)
+        return payload.get("plan_text", "")
+    except Exception as e:
+        return f"Error reading {path}: {e}"
+
+
+@tool
+def refine_plan_from_export(path: str, available_hours: float = 6.0, save_to: str = "logs/refined_plan.json") -> str:
+    """Refine an exported plan into a time-blocked daily plan and save as JSON.
+
+    Args:
+        path: path to exported JSON (relative to repo root)
+        available_hours: hours available today
+        save_to: output JSON path inside repo
+    """
+    plan_text = load_plan_json(path)
+    if plan_text.startswith("File not found") or plan_text.startswith("Error"):
+        return plan_text
+
+    # Use existing utilities to extract tasks and build a plan
+    tasks = _extract_tasks(plan_text)
+    if not tasks:
+        return "No tasks found in exported plan."
+
+    # Create a simple combined input for build_day_plan
+    tasks_str = "\n".join(tasks)
+    combined_input = f"hours: {available_hours}\n{tasks_str}"
+    day_plan = build_day_plan(combined_input)
+
+    # Save the refined plan as JSON
+    export_result = export_plan_json(day_plan, save_to)
+
+    return f"Refinement complete. {export_result}\n\n{day_plan}"
+
+
 class SimpleAgent:
     """
     A simple agent that uses LangChain's built-in agent framework.
