@@ -47,6 +47,36 @@ python main.py
 - Task effort estimates are heuristic unless explicitly provided as `(xh)` in input.
 - Exported plans are saved locally inside the repository path.
  - Exported plans are saved locally inside the repository path. Use `refine_plan_from_export` to turn an exported plan into a time-blocked daily schedule.
+
+CLI Usage
+---------
+
+A small CLI wrapper is provided at `examples/01_simple_agent/cli.py` for convenience. Example commands:
+
+- Run the demo sequence:
+
+	```bash
+	cd examples/01_simple_agent
+	python cli.py demo
+	```
+
+- Run the agent on a single task:
+
+	```bash
+	python cli.py run --task "Prioritize this backlog: ..."
+	```
+
+- Export a plan (from text or file):
+
+	```bash
+	python cli.py export --text "Daily Plan..." --output logs/custom_plan.json
+	```
+
+- Refine an exported plan into a day plan:
+
+	```bash
+	python cli.py refine --input logs/track01_execution_plan.json --hours 6 --output logs/today_refined_plan.json
+	```
 - Current model default is fixed in code (`gpt-3.5-turbo`).
 
 ## Next Track
